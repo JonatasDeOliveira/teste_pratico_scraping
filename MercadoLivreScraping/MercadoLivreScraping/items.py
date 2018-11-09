@@ -8,11 +8,10 @@
 import scrapy
 
 
-class ProductItem(scrapy.Item):
+class MercadoLivreItem(scrapy.Item):
     url = scrapy.Field()
     name = scrapy.Field()
     description = scrapy.Field()
-    category = scrapy.Field()
     brand = scrapy.Field()
     navigation = scrapy.Field()
     seller_name = scrapy.Field()
