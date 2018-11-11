@@ -4,7 +4,6 @@ import scrapy
 from scrapy import FormRequest
 from scrapy.selector import Selector
 import unicodedata
-import numpy as np
 from MercadoLivreScraping.items import MercadoLivreItem
 
 class MercadolivreSpider(scrapy.Spider):
@@ -31,9 +30,9 @@ class MercadolivreSpider(scrapy.Spider):
 			link = product_elem.css('div.item__info-container h2.item__title a::attr(href)').extract_first()
 			yield response.follow(link, self.parseProduct)
 		
-		'''next_page = response.css('div.pagination__container ul.andes-pagination li.andes-pagination__button--next a::attr(href)').extract_first()
+		next_page = response.css('div.pagination__container ul.andes-pagination li.andes-pagination__button--next a::attr(href)').extract_first()
 		if next_page is not None:
-			yield response.follow(next_page, self.parseSearchPage)'''
+			yield response.follow(next_page, self.parseSearchPage)
 
 	def parseProduct(self, response):
 		url = response.url
